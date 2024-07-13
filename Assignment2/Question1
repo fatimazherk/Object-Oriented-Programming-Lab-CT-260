@@ -1,0 +1,69 @@
+// Ali is playing a game of cards. This is a special type of card in which a card is a 3 digit number
+// (i.e. 100 - 999). He has to sort the cards in ascending order. However, sorting will be done on the
+// sum of the digits. Make a C++ program to sort his cards, take user input for number of cards. Taking
+// input of cards number should be a function named get_data( ... ). Sorting should be another
+// function sort( ... ) and displaying the final result should be another function display( ... ).
+
+Source code
+#include <iostream>
+using namespace std;
+
+// Function to calculate the sum of digits of a number
+int sumOfDigits(int num) {
+    int sum = 0;
+    while (num > 0) {
+        sum = sum+ num % 10;
+        num /= 10;
+    }
+    return sum;
+}
+
+// Function to take user input for number of cards
+void get_data(int* cards, int num_cards) {
+    cout << "Enter the " << num_cards << " cards:\n";
+    for (int i = 0; i < num_cards; ++i) {
+    cin >> cards[i];
+    }
+}
+
+// Function to swap the two integers
+void swap(int& a, int& b) {
+    int temp = a;
+    a = b;
+    b = temp; //using a temporary variable for the swapping
+}
+
+// Function to sort cards based on the sum of digits
+void sort_cards(int* cards, int num_cards) {
+    for (int i = 0; i < num_cards - 1; ++i) {
+        for (int j = 0; j < num_cards - i - 1; ++j) {
+            if (sumOfDigits(cards[j]) > sumOfDigits(cards[j + 1])) {
+                swap(cards[j], cards[j + 1]);
+            }
+        }
+    }
+}
+
+// Function to display the sorted cards
+void display(const int* cards, int num_cards) {
+    cout << "Sorted cards based on sum of digits:\n";
+    for (int i = 0; i < num_cards; ++i) {
+        cout << cards[i] << endl;
+    }
+
+}
+
+int main() {
+    int num_cards;
+  cout << "Enter the number of cards: ";
+  cin >> num_cards;
+    
+    int* cards = new int[num_cards];
+    get_data(cards, num_cards);
+    sort_cards(cards, num_cards);
+    display(cards, num_cards);
+
+    delete[] cards;
+    return 0;
+}
+
