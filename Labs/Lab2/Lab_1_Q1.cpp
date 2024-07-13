@@ -1,3 +1,8 @@
+// Write a program in which a class named student has member variables name, roll_no,
+// semester and section. Create 4 objects of this class to store data of 4 different students,
+// now display data of only those students who belong to section A.
+
+
 #include<iostream>
 #include<string>
 
