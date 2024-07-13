@@ -1,0 +1,17 @@
+// Write a program to convert temperature from Fahrenheit to Celsius unit using equation c=(f-32)/1.8
+
+#include<iostream>
+using namespace std;
+
+float fahtocel(float fah){
+	return (fah-32)/1.8;
+}
+
+int main(){
+float fah,cel;
+cout<<"enter temperature in fahrenheit: "<<endl;
+cin>>fah;
+cel=fahtocel(fah);
+cout<<"temperature in celsius is: "<<cel<<endl;
+	return 0;
+}
