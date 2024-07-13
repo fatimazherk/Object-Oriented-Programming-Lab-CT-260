@@ -1,0 +1,49 @@
+// Write a 'C++' program that takes start and end time from the user in an analog format and
+// your challenge is to design a digital clock that will display Hours, Minutes and Seconds on
+// a console from user provided start and end time. The program sample input/output will be
+// as follows:
+// Enter Small
+// Needle: 10 Enter
+// large Needle: 12
+// Enter largest
+// Needle: 07 Digital
+// Clock: 10:00:35
+
+#include <iostream>
+#include<windows.h>
+using namespace std;
+
+int main() {
+  int h,m,s,a,err; //h stands for hour needle m for minute needle and s for small needle 
+  err=a=0;
+  while(err==0){
+  	cout<<"enter small needle: "<<endl;
+  	cin>>h;
+  	cout<<"enter large needle : "<<endl;
+  	cin>>m;
+  	cout<<"enter largest needle: "<<endl;
+  	cin>>s;
+  	if(h<24 && m<60 && s<60)
+  	err++;
+  	else
+  	system("cls");
+  	  }
+while(a==0){
+	system("cls");
+	cout<<h<<" : "<<m<<" : "<<s<<endl;
+	Sleep(1000);
+	s++;
+	if(s>59){ 
+		s=0; //if seconds entered are 60 minutes seconds will be zero
+		m++;
+	}
+	if(m>12){ //if minutes are more than twelve then minutes initislize to zero
+		m=0;
+		h++;
+	}
+	if(h>24){ //if hour is greater than 24 then hour initialize to zero 
+		h=0;
+	}
+}
+    return 0;
+}
