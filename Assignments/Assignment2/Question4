@@ -1,0 +1,34 @@
+// You are required to print Pascal’s triangle. Pascal’s triangle is a triangular array of the binomial coefficients.
+// Take number of rows(n) as input from user and print pattern similar to the one shown for n=6:
+
+#include <iostream>
+using namespace std;
+
+// Function to calculate binomial coefficient C(n, k)
+int binomialCoefficient(int n, int k) {
+    if (k == 0 || k == n)
+        return 1;
+    else
+        return binomialCoefficient(n - 1, k - 1) + binomialCoefficient(n - 1, k);
+}
+
+int main() {
+    int numRows;
+    cout << "Enter the number of rows for Pascal's triangle: ";
+    cin >> numRows;
+
+    for (int i = 0; i < numRows; ++i) {
+        // Print spaces to align the triangle
+        for (int j = 0; j < numRows - i - 1; ++j) {
+            cout << " ";
+        }
+        // Calculate and print each element in the row
+        for (int j = 0; j <= i; ++j) {
+            cout << binomialCoefficient(i, j) << " ";
+        }
+
+        cout << endl;
+    }
+
+    return 0;
+}
