@@ -1,0 +1,72 @@
+// A famous restaurant in town offers the year's biggest sale on its
+// entire menu, but with certain conditions. The 25% discount
+// offer is valid for every bill exceeding Rs: 1500/- for lunch and
+// 20% for dinner. An additional 10% for take away at lunch and
+// 5% at dinner and 15% for mid-night. The restaurant also
+// announced a special happy hour deal any time in a given day,
+// where 50% discount is offer straight away but not exceeding Rs:
+// 2500/-. Note: No discount is offered if the payment is made
+// using Credit / Debit card. Write a C++ program to calculate
+// CUSTOMER bill.
+
+#include<iostream>
+using namespace std;
+
+int main() {
+    char orderType, paymentType;
+    float billAmount, discount = 0, finalAmount;
+    
+    cout << "Enter the order type (L for Lunch, D for Dinner, M for Midnight, H for Happy Hour): ";
+    cin >> orderType; //taking input of order type
+    
+    cout << "Enter the bill amount: Rs. ";
+    cin >> billAmount;
+    
+    cout << "Enter the payment type (C for Credit/Debit card, O for Other): ";
+    cin >> paymentType;
+    
+    switch(orderType) {
+        case 'L':
+            if (billAmount > 1500) {
+                discount = 0.25 * billAmount;
+                if (paymentType != 'C') {
+                    // Apply discount
+                    discount += 0.10 * billAmount;
+                }
+            }
+            break;
+        case 'D':
+            if (billAmount > 1500) {
+                discount = 0.20 * billAmount;
+                if (paymentType != 'C') {
+                    // Apply discount 
+                    discount += 0.05 * billAmount;
+                }
+            }
+            break;
+        case 'M':
+            discount = 0.15 * billAmount;
+            if (paymentType != 'C') {
+                // Apply discount 
+                discount += 0.05 * billAmount;
+            }
+            break;
+        case 'H':
+            discount = 0.50 * billAmount;
+            if (discount > 2500) {
+                discount = 2500; // discount at Rs. 2500
+            }
+            break;
+        default:
+            cout << "Invalid order type!" << endl; //if input entered doesnt satisfyt condition
+            return 1;
+    }
+    
+    finalAmount = billAmount - discount;
+    
+    cout << "Discount applied: Rs. " << discount << endl;
+    cout << "Final amount to pay: Rs. " << finalAmount << endl;
+    
+    return 0;
+
+}
