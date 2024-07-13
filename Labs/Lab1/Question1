@@ -1,0 +1,20 @@
+// Write a program that takes input of your roll number along with marks obtained in five subjects and displays the total marks obtained and the percentage.
+
+#include<iostream>
+using namespace std;
+int main(){
+	int rollnum;
+	float marks[5],totalmarks=0,perc;
+	cout<<"enter your roll number: ";
+	cin>>rollnum;
+	cout<<"enter your marks: \n";
+	for(int i=0;i<5;i++){
+		cout<<"subject "<<i+1<<": ";
+		cin>>marks[i];
+		totalmarks=totalmarks+marks[i];
+	}
+	perc=(totalmarks/(5*100))*100;
+	cout<<"total marks of student are: "<<totalmarks<<endl;
+	cout<<"percentage: "<<perc<<"%"<<endl;
+	return 0;
+}
