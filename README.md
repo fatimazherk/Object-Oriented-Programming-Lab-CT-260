@@ -18,7 +18,6 @@ Index:
 - Lab Task 9: Abstract Base Class And Pure Virtual Functions
 - Lab Task 10: Template Functions And Template Class
 - Lab Task 11: Exception Handling, C++ Standard Template Library STL And Vectors
-- Lab Task 12: Introduction To Filing
   
 Each task and assignment folder contains the question, the relevant source code, and comments to help understand the code better.
 
